@@ -30,7 +30,12 @@
 
     "nettrine/dbal": "^0.8.2",
     "nettrine/orm": "^0.8.4",
-    "nettrine/cache": "^0.3.0"
+    "nettrine/cache": "^0.3.0",
+
+    "php-http/curl-client": "^2.3.0",
+    "symfony/http-client": "^7.1.0",
+    "typesense/typesense-php": "^4.9.0",
+    "fakerphp/faker": "^1.23.1"
   },
   "require-dev": {
     "contributte/tester": "^0.3.0",
@@ -52,6 +57,7 @@
     "sort-packages": true,
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,
+      "php-http/discovery": true,
       "symfony/thanks": true
     }
   }

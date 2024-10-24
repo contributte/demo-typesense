@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+
+use App\Bootstrap;
+use App\Model\User;
+use Doctrine\ORM\EntityManagerInterface;
+use Faker\Generator;
+use Tracy\Debugger;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$container = Bootstrap::boot()->createContainer();
+$em = $container->getByType(EntityManagerInterface::class);
+$faker = $container->getByType(Generator::class);
+
+// Create users with random data
+for ($i = 0; $i < 1000; $i++) {
+	$user = new User(
+		username: $faker->userName,
+		address: $faker->address,
+		phone: $faker->phoneNumber,
+		company: $faker->company,
+		bio: $faker->text,
+	);
+
+	$em->persist($user);
+	Debugger::dump('Created user #' . $i);
+}
+
+$em->flush();
+Debugger::dump('All users created');

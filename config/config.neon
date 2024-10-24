@@ -15,6 +15,11 @@ parameters:
 		user: contributte
 		password: contributte
 
+	typesense:
+		host: 0.0.0.0
+		port: 8108
+		apikey: contributte
+
 # ======================================
 # Extensions ===========================
 extensions:
@@ -56,3 +61,17 @@ nettrine.orm.attributes:
 # Services =============================
 services:
 	- App\Model\RouterFactory::createRouter
+
+	typesense: Typesense\Client([
+		api_key: %typesense.apikey%
+		nodes: [
+			{ host: %typesense.host%, port: %typesense.port%, protocol: http }
+		]
+		client: Symfony\Component\HttpClient\HttplugClient()
+	])
+
+	faker:
+		type: Faker\Generator
+		factory: Faker\Factory::create()
+		setup:
+			- seed('123456789')

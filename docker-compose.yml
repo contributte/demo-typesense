@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:17-bookworm
-    restart: always
+    restart: on-failure
     environment:
       POSTGRES_DB: contributte
       POSTGRES_USER: contributte
@@ -11,3 +11,14 @@ services:
     volumes:
       - ./.data/postgres:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  typesense:
+    image: typesense/typesense:27.1
+    restart: on-failure
+    environment:
+      TYPESENSE_DATA_DIR: /data
+      TYPESENSE_API_KEY: contributte
+    ports:
+      - 8108:8108
+    volumes:
+      - ./.data/typesense:/data

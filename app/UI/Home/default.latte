@@ -11,6 +11,28 @@
 	</a>
 </div>
 
+<h2 class="text-2xl font-bold">Search</h2>
+
+<div class="my-4 gap-2">
+	<form n:name="search" class="w-full">
+		<input type="text" n:name="query" class="px-4 py-2 border rounded-md" placeholder="Search users">
+		<button n:name="submit" type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md font-bold">
+			Search
+		</button>
+	</form>
+
+	<div n:ifset="$result" class="bg-gray-200">
+		<h2 class="text-3xl font-bold">Results</h2>
+
+		{dump $result}
+
+		<div>Found: {$result['found']}</div>
+
+	</div>
+</div>
+
+<h2 class="text-2xl font-bold">List</h2>
+
 <div class="relative overflow-x-auto">
 	<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 		<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
