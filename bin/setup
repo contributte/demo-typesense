@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+
+use App\Bootstrap;
+use Tracy\Debugger;
+use Typesense\Client;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$typesense = Bootstrap::boot()->createContainer()->getByType(Client::class);
+
+$schema = [
+	'name' => 'users',
+	'fields' => [
+		[
+			'name' => '.*',
+			'type' => 'auto',
+		],
+	],
+];
+
+$response = $typesense->collections->create($schema);
+
+Debugger::dump('Collection created');
+Debugger::dump($response);
