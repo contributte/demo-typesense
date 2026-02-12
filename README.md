@@ -29,7 +29,7 @@ Demo of [Typesense](https://typesense.org/) Search Engine to Nette ([@nette](htt
 
 ## Installation
 
-You will need `PHP 8.2+` and [Composer](https://getcomposer.org/).
+You will need `PHP 8.4+` and [Composer](https://getcomposer.org/).
 
 Create project using composer.
 
