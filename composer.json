@@ -38,7 +38,7 @@
     "fakerphp/faker": "^1.23.1"
   },
   "require-dev": {
-    "contributte/tester": "^0.3.0",
+    "contributte/tester": "^0.4.1",
     "symfony/thanks": "^1.4.0"
   },
   "autoload": {
