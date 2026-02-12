@@ -34,7 +34,7 @@
 
     "php-http/curl-client": "^2.3.0",
     "symfony/http-client": "^7.1.0",
-    "typesense/typesense-php": "^4.9.0",
+    "typesense/typesense-php": "^6.0.0",
     "fakerphp/faker": "^1.23.1"
   },
   "require-dev": {
